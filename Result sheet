@@ -1,0 +1,22 @@
+import pandas as pd
+
+snum = int(input("How many students?\n"))
+sheet = {}
+marks = []
+index = 1
+for i in range(snum):
+    sname = input("Enter Student name: ")
+    for i in range(3):
+        smarks = int(input(f"Enter marks in Test {index}: "))
+        marks.append(smarks)
+        index += 1
+    sheet[sname] = marks
+    marks = []
+    index = 1
+    
+result = pd.DataFrame(sheet)
+result.to_csv("Result.csv",index = False)
+
+result = pd.read_csv("//Users//mac//Python//html//Result.csv")
+print(result.to_numpy())
+
